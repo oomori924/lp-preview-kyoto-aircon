@@ -651,7 +651,7 @@ footer a{color:#9FD1F2}
 
 <!-- ヘッダー：地域強調バナー（赤入れ①：地域を少し強調＋バナーに組み込み） -->
 <style>
-/* ==== プライバシーポリシー（2026-07-29 ジョブズ） ==== */
+/* ==== プライバシーポリシー（2026-07-29） ==== */
 #pp-dialog{border:none;border-radius:14px;max-width:680px;width:calc(100% - 40px);max-height:82vh;padding:0;box-shadow:0 24px 80px rgba(11,42,91,.35)}
 #pp-dialog::backdrop{background:rgba(11,42,91,.55)}
 .pp-head{background:linear-gradient(120deg,#0B2A5B,#153F82);color:#fff;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -664,7 +664,7 @@ footer a{color:#9FD1F2}
 .pp-body p{margin:2px 0}
 .pp-link{color:var(--cool);text-decoration:underline;cursor:pointer}
 </style><style>
-/* ==== LINE CTA（2026-07-29 ジョブズ） ==== */
+/* ==== LINE CTA（2026-07-29） ==== */
 .line-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#06C755;color:#fff !important;text-decoration:none;font-weight:800;border-radius:10px;padding:13px 30px;font-size:15.5px;box-shadow:0 10px 24px rgba(6,199,85,.3)}
 .line-btn:hover{filter:brightness(1.06)}
 .line-btn .line-ic{width:22px;height:22px;flex:none}
@@ -677,7 +677,7 @@ footer a{color:#9FD1F2}
 .sticky-cta .s-tel-ic{width:15px;height:15px;vertical-align:-2px;margin-right:3px}
 @media (max-width:359px){.sticky-cta a{font-size:12.5px}}
 </style><style>
-/* ==== ナビLINEボタン（2026-07-29 ジョブズ） ==== */
+/* ==== ナビLINEボタン（2026-07-29） ==== */
 .site-nav a.nav-line{margin-left:auto;background:#06C755;color:#fff;border-radius:99px;padding:8px 18px;font-weight:800;margin-block:5px}
 .site-nav a.nav-line:hover{background:#05B24C;color:#fff}
 .site-nav a.nav-line+ a.nav-cta{margin-left:8px}
@@ -742,8 +742,10 @@ gtag('config','G-MLDT3DP43Q');
 .fv-sub+.fv-sub{border-bottom:1px solid rgba(21,63,130,.22)}
 .fv-photo{position:relative;z-index:1;margin:0;border-radius:18px;overflow:hidden;box-shadow:0 22px 50px rgba(11,42,91,.18);aspect-ratio:3/2}
 .fv-photo img{display:block;width:100%;height:100%;object-fit:cover}
-.fv-awards{position:absolute;right:38px;top:22px;z-index:3;display:flex;gap:8px}
-.fv-award{background:rgba(255,255,255,.96);border:1px solid #E3EAF4;border-radius:10px;padding:8px 16px 7px;text-align:center;box-shadow:0 8px 24px rgba(11,42,91,.14);min-width:118px;line-height:1.2}
+.fv-awards{position:relative;z-index:3;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:18px;max-width:560px}
+.fv-award{background:rgba(255,255,255,.96);border:1px solid #E3EAF4;border-radius:10px;padding:8px 14px 7px;text-align:center;box-shadow:0 8px 24px rgba(11,42,91,.14);min-width:0;line-height:1.2}
+.fv-award.is-strength{border-color:#F6C9C3;background:#FFF8F5}
+.fv-award.is-strength b{font-family:var(--sans);font-size:21px;color:var(--cta);letter-spacing:0;white-space:nowrap}
 .fv-award small{display:block;font-size:10.5px;font-weight:700;color:var(--sub);letter-spacing:.06em;margin-bottom:3px}
 .fv-award b{display:block;font-family:var(--serif);font-size:26px;font-weight:800;color:var(--headline);letter-spacing:.01em}
 .fv-award b .st{color:var(--gold);font-size:.8em;margin-right:2px}
@@ -752,9 +754,10 @@ gtag('config','G-MLDT3DP43Q');
 @media (max-width:900px){
   .fv-in{grid-template-columns:1fr;gap:18px;padding:22px 20px 26px}
   .fv-photo{order:-1;aspect-ratio:16/9;border-radius:14px}
-  .fv-awards{position:static;justify-content:flex-start;margin:14px 0 0;flex-wrap:wrap}
-  .fv-award{padding:7px 12px 6px;min-width:104px}
+  .fv-awards{margin:14px 0 0;gap:6px}
+  .fv-award{padding:7px 10px 6px}
   .fv-award b{font-size:22px}
+  .fv-award.is-strength b{font-size:19px}
   .fv h1{font-size:clamp(31px,9vw,44px);line-height:1.25;margin-bottom:14px}
   .fv-badge{font-size:12.5px;padding:7px 14px 7px 12px;margin-bottom:14px}
   .fv-sub{font-size:14px;padding:7px 0}
@@ -772,21 +775,60 @@ gtag('config','G-MLDT3DP43Q');
       <h1>業務用エアコンの<br><span class="fv-nowrap"><span class="fv-blue">クリーニング</span><span class="fv-small">こそ、</span></span><br>おまかせください。</h1>
       <p class="fv-sub">私たちは、業務用エアコンのクリーニングに特化したプロ集団です。</p>
       <p class="fv-sub">「効かない・臭う・電気代が高い」——<span style="white-space:nowrap;">その不調、営業を止めずに解決します。</span></p>
+      <div class="fv-awards" aria-label="実績と施工体制">
+        <div class="fv-award"><small>Googleクチコミ</small><b><span class="st">★</span>5.0</b><span class="cnt">札幌店 88件（2026年10月時点）</span></div>
+        <div class="fv-award"><small>NHC全国累計</small><b>2万<span class="sm">台超</span></b><span class="cnt">エアコンクリーニング</span></div>
+        <!-- 【要確認】ここから：FVの強みバッジ2点（1日20台体制／メーカー出身技術者。事実確認NGなら各 fv-award ごと削除） -->
+        <div class="fv-award is-strength"><small>施工体制</small><b>1日20台<span class="sm">以上</span></b><span class="cnt">多台数・チェーン店の一括対応</span></div>
+        <div class="fv-award is-strength"><small>技術者</small><b>メーカー<span class="sm">出身</span></b><span class="cnt">空調機器メーカー出身の技術者が在籍</span></div>
+        <!-- 【要確認】ここまで -->
+      </div>
     </div>
     <figure class="fv-photo">
       <img src="assets/img24.webp" alt="天井カセット形（4方向）の業務用エアコン" width="1200" height="800" fetchpriority="high">
     </figure>
-    <div class="fv-awards" aria-label="実績">
-      <div class="fv-award"><small>Googleクチコミ</small><b><span class="st">★</span>5.0</b><span class="cnt">札幌店 88件（2026年10月時点）</span></div>
-      <div class="fv-award"><small>累計施工実績</small><b>2万<span class="sm">台超</span></b><span class="cnt">エアコンクリーニング</span></div>
+  </div>
+</section>
+
+<!-- 【要確認】ここから：札幌店の施工体制ストリップ（2026-10-07 オーナー提供の強み。事実確認NGなら strength セクションごと削除） -->
+<style>
+.strength{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 0 28px}
+.strength .wrap{max-width:1040px}
+.strength-title{text-align:center;font-family:var(--serif);font-size:clamp(16px,2.2vw,20px);font-weight:700;color:var(--headline);letter-spacing:.06em;margin-bottom:16px}
+.strength-title::before,.strength-title::after{content:"";display:inline-block;width:28px;height:1px;background:var(--navy);vertical-align:middle;margin:0 12px}
+.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.strength-item{background:#fff;border:1.5px solid #C6D6EE;border-radius:14px;padding:18px 18px 16px;text-align:center;box-shadow:0 10px 28px rgba(14,34,53,.06)}
+.strength-item .big{display:block;font-family:var(--sans);font-size:clamp(22px,2.6vw,30px);font-weight:900;color:var(--cta);line-height:1.2;letter-spacing:.01em}
+.strength-item .big .st{color:var(--gold);font-size:.85em;margin-right:2px}
+.strength-item .big .sm{font-size:.6em;font-weight:800;margin-left:2px}
+.strength-item .ttl{display:block;font-size:14.5px;font-weight:800;color:var(--headline);margin-top:6px}
+.strength-item .txt{display:block;font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:4px}
+@media (max-width:760px){
+  .strength{padding:24px 0 22px}
+  .strength-title::before,.strength-title::after{width:16px;margin:0 8px}
+  .strength-grid{grid-template-columns:1fr;gap:10px}
+  .strength-item{display:grid;grid-template-columns:auto 1fr;column-gap:14px;text-align:left;align-items:center;padding:14px 16px}
+  .strength-item .big{grid-row:1/3;font-size:21px;min-width:112px}
+  .strength-item .ttl{margin-top:0}
+  .strength-item .txt{margin-top:2px}
+}
+</style>
+<section class="strength" aria-label="札幌店の施工体制">
+  <div class="wrap">
+    <div class="strength-title">札幌店の施工体制</div>
+    <div class="strength-grid">
+      <div class="strength-item"><span class="big">1日20台<span class="sm">以上</span></span><span class="ttl">多台数・チェーン店の一括清掃に対応</span><span class="txt">複数店舗や年末前の集中施工もご相談ください（施工規模により調整）</span></div>
+      <div class="strength-item"><span class="big">メーカー<span class="sm">出身</span></span><span class="ttl">空調メーカー出身の技術者が在籍</span><span class="txt">空調機器メーカーでの勤務経験を持つ技術者が在籍する施工チームが対応</span></div>
+      <div class="strength-item"><span class="big"><span class="st">★</span>5.0<span class="sm">・88件</span></span><span class="ttl">Googleクチコミ評価</span><span class="txt">日本ハウスクリーニング札幌店（2026年10月時点）</span></div>
     </div>
   </div>
 </section>
+<!-- 【要確認】ここまで -->
 
 <div style="background:#fff;padding:26px 20px 4px;">
   <div style="max-width:900px;margin:0 auto;background:#fff;border:2.5px solid var(--cool);border-radius:16px;padding:26px 30px;text-align:center;box-shadow:0 12px 34px rgba(14,34,53,.08);">
     <div style="font-family:var(--serif);font-size:clamp(17px,2.6vw,24px);font-weight:700;color:var(--headline);line-height:1.6;">天井カセット形 4方向 分解洗浄<br class="fv-br"> <span style="color:var(--cta);font-family:var(--sans);font-weight:800;font-size:1.22em;letter-spacing:.01em;">28,600円</span><span style="font-size:.86em;">（税込）/台</span></div>
-    <div style="margin-top:6px;font-size:clamp(12.5px,1.8vw,15px);font-weight:700;color:var(--sub);">1方向 22,000円〜／2方向・天吊り形 25,000円（税込・1台）</div>
+    <div style="margin-top:6px;font-size:clamp(12.5px,1.8vw,15px);font-weight:700;color:var(--sub);">1方向 22,000円／2方向・天吊り形 25,000円（税込・1台）</div>
     <div style="margin-top:14px;display:inline-flex;align-items:center;justify-content:center;color:var(--cool);background:rgba(27,86,184,.07);border:1px solid rgba(27,86,184,.3);border-radius:8px;padding:8px 14px;font-size:clamp(11.5px,3.4vw,15.5px);font-weight:700;letter-spacing:.02em;line-height:1.5;white-space:nowrap;">閉店後・定休日の施工OK｜営業を止めません</div>
     <a href="tel:0120973157" style="margin:16px auto 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:linear-gradient(180deg,var(--cta) 0%,var(--cta-deep) 100%);color:#fff;border-radius:12px;padding:13px 20px;text-decoration:none;box-shadow:0 10px 26px rgba(232,68,58,.3);max-width:420px;">
       <span style="font-family:var(--serif);font-size:clamp(20px,5.6vw,30px);font-weight:800;letter-spacing:.01em;line-height:1.2;white-space:nowrap;">&#9742; 0120-973-157</span>
@@ -841,7 +883,7 @@ gtag('config','G-MLDT3DP43Q');
     <div class="worry-bridge reveal" style="max-width:760px;">
       <span class="big">その悩み、業務用エアコンに精通したプロが解決します。</span>
       当てはまるものが1つでもあれば、内部の汚れがかなり進行しているサインです。
-      <span class="bridge-note">営業終了後の<b>閉店後・定休日の施工も可能</b>。<br class="nb-br">「年末の繁忙前に済ませたい」もご相談ください。</span>
+      <span class="bridge-note"><b>閉店後・定休日の施工も可能</b>。<br class="nb-br">「年末の繁忙前に済ませたい」もご相談ください。</span>
     </div>
   </div>
 </section>
@@ -1013,12 +1055,12 @@ gtag('config','G-MLDT3DP43Q');
       <div class="review reveal">
         <div class="stars">★★★★★</div>
         <p>「エアコンについて質問したら、しっかり答えてくれるし おすすめのエアコンの使い方や、掃除の仕方、なんでもわかりやすく教えてくれました。（中略）お掃除してもらったら真っ黒の水が大量に出てきました。洗浄してもらいエアコンをつけると、今まで使ってたエアコンとは思えないくらい、同じ温度なのにすごい涼しく感じました。やってよかったです。口コミが良いのも納得です」</p>
-        <div class="who"><span style="font-weight:700"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>クチコミより（札幌店）</div>
+        <div class="who"><span style="font-weight:700"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>クチコミより（札幌店・ご家庭のお客様）</div>
       </div>
       <div class="review reveal">
         <div class="stars">★★★★★</div>
         <p>「当日は時間通りに来てくださり、手際よく丁寧に作業を進めてくださいました。（中略）「写真撮ってもいいですか？」とお聞きしたら快くOKしてくれて、本体の汚れとバケツの真っ黒な水を見たら本当にびっくりしました笑（中略）終わったあとはエアコンの効きが全然違うし、風がキレイになったのが実感できて安心して使えます」</p>
-        <div class="who"><span style="font-weight:700"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>クチコミより（札幌店）</div>
+        <div class="who"><span style="font-weight:700"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>クチコミより（札幌店・ご家庭のお客様）</div>
       </div>
       <div class="review reveal">
         <div class="stars">★★★★★</div>
@@ -1036,26 +1078,26 @@ gtag('config','G-MLDT3DP43Q');
     <h2 style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;"><img loading="lazy" decoding="async" src="assets/img16.webp" alt="NHC 日本ハウスクリーニング" style="height:1.9em;width:auto;display:block;"><span>NHCが選ばれる<span id="reason-count" style="color:var(--cta);font-size:1.55em;font-weight:900;font-family:var(--sans);vertical-align:-.06em;margin:0 .04em;">7</span>つの理由</span></h2>
     <img loading="lazy" decoding="async" src="assets/img31.webp" alt="天井カセット形エアコンを養生して分解洗浄する作業員" style="display:block;width:100%;max-width:760px;margin:8px auto 28px;border-radius:12px;box-shadow:0 14px 40px rgba(14,34,53,.14);">
     <div class="reasons">
-      <div class="reason reveal">
-        <h3>業務用に特化した分解洗浄技術</h3>
-        <p>天井カセット形・天吊り形など業務用特有の構造を熟知したスタッフが、パネル・フィルターだけでなく熱交換器・送風ファン・ドレンパンまで分解して高圧洗浄。「見えない内部」こそ徹底的に洗います。</p>
-      </div>
-      <!-- 【要確認】ここから：空調メーカー出身の技術者（2026-10-07 オーナー提供の新しい強み。本人・NHCの了承前のためメーカー名は書かない／「自社スタッフ」「社員」とは書かない。事実確認NGならこの理由ブロック（reason）ごと削除。件数の数字はJSで自動更新） -->
-      <div class="reason reveal">
-        <h3>空調メーカー出身の技術者が施工</h3>
-        <p>空調機器メーカーでの勤務経験を持つ技術者を含む施工チームが対応。機種ごとの構造を熟知し、分解・洗浄・復旧まで確実に行います。</p>
-      </div>
-      <!-- 【要確認】ここまで -->
-      <div class="reason reveal">
-        <h3>営業を止めない施工</h3>
-        <p>閉店後・定休日など、営業に影響しない時間帯に合わせて施工します。什器や商品まわりの養生も徹底。「止められないから頼めない」をなくします。</p>
-      </div>
       <!-- 【要確認】ここから：1日20台以上の施工体制（2026-10-07 オーナー提供。協力会社の技術者を含むため「自社施工」とは書かない。条件（繁忙期の可否・エリア）確認前。NGならこの理由ブロック（reason）ごと削除） -->
       <div class="reason reveal">
         <h3>複数店舗・多台数も短期間で</h3>
         <p>1日20台以上の施工に対応できる体制を整えています（施工規模により調整）。チェーン店の一括清掃や年末前の集中施工もご相談ください。</p>
       </div>
       <!-- 【要確認】ここまで -->
+      <!-- 【要確認】ここから：空調メーカー出身の技術者（2026-10-07 オーナー提供の新しい強み。本人・NHCの了承前のためメーカー名は書かない／「自社スタッフ」「社員」とは書かない。事実確認NGならこの理由ブロック（reason）ごと削除。件数の数字はJSで自動更新） -->
+      <div class="reason reveal">
+        <h3>空調メーカー出身の技術者が在籍</h3>
+        <p>空調機器メーカーでの勤務経験を持つ技術者を含む施工チームが対応。機種ごとの構造を熟知し、分解・洗浄・復旧まで確実に行います。</p>
+      </div>
+      <!-- 【要確認】ここまで -->
+      <div class="reason reveal">
+        <h3>業務用に特化した分解洗浄技術</h3>
+        <p>天井カセット形・天吊り形など業務用特有の構造を熟知したスタッフが、パネル・フィルターだけでなく熱交換器・送風ファン・ドレンパンまで分解して高圧洗浄。「見えない内部」こそ徹底的に洗います。</p>
+      </div>
+      <div class="reason reveal">
+        <h3>営業を止めない施工</h3>
+        <p>閉店後・定休日など、営業に影響しない時間帯に合わせて施工します。什器や商品まわりの養生も徹底。「止められないから頼めない」をなくします。</p>
+      </div>
       <div class="reason reveal">
         <h3>作業前後の写真でご報告</h3>
         <p>作業工程を写真で記録し、汚れの状態と洗浄後の変化をその場でご確認いただけます。担当者さまが社内・オーナーさまへ報告する際の資料としてもお使いいただけます。</p>
@@ -1095,7 +1137,9 @@ gtag('config','G-MLDT3DP43Q');
         <div><h3>施工・写真でご報告</h3><p>養生から仕上げの動作確認まで責任施工。作業前後の写真つきでご報告します。</p></div>
       </div>
     </div>
+    <!-- 【要確認】ここから：年末枠の案内（札幌店の12月の受入状況が未確認。NGならこの案内文（p要素）を削除） -->
     <p style="max-width:680px;margin:22px auto 0;text-align:center;background:#FFF6EF;border:1.5px solid var(--cta);border-radius:10px;padding:12px 16px;font-size:14.5px;font-weight:700;color:var(--headline);line-height:1.7;">12月の施工枠は<span style="color:var(--cta);">11月中のご予約</span>で確保をおすすめします。</p>
+    <!-- 【要確認】ここまで -->
     <img loading="lazy" decoding="async" src="assets/img30.webp" alt="NHC日本ハウスクリーニングの社用車" style="display:block;width:100%;max-width:520px;margin:28px auto 0;border-radius:14px;box-shadow:0 12px 34px rgba(14,34,53,.12);">
   </div>
 </section>
@@ -1181,7 +1225,7 @@ gtag('config','G-MLDT3DP43Q');
       <p class="sign">日本ハウスクリーニング（NHC北海道株式会社）<br>札幌店 一同</p>
     </div>
     <ul class="commit">
-      <li class="reveal"><b>業務用エアコンのクリーニングに、ここまで取り組んでいます</b>——洗浄工程の社内基準を定め、全スタッフが同じ品質で施工します</li>
+      <li class="reveal"><b>業務用エアコンのクリーニングに、ここまで取り組んでいます</b>——洗浄工程の社内基準を定め、施工チーム全員が同じ基準で施工します</li>
       <li class="reveal">作業前後の<b>写真記録</b>を徹底し、汚れの状態と仕上がりを必ずご確認いただきます</li>
       <li class="reveal">施工後の<b>動作確認・後片付け</b>まで完了して「作業終了」。養生も含めて現場を汚しません</li>
       <li class="reveal">できないこと・不要な作業は<b>正直にお伝えします</b>。過剰な提案はしません</li>
@@ -1195,7 +1239,7 @@ gtag('config','G-MLDT3DP43Q');
     <div class="eyebrow"><span class="cassette"></span>CONTACT</div>
     <h2>無料見積もり・ご相談</h2>
     <div class="form-note reveal">
-      <b>相談だけでも大丈夫です。</b>「うちのエアコンも対象？」「概算だけ知りたい」——<br>見積り前の疑問に、業務用専門のスタッフがお答えします。しつこい営業は一切しません。<br><span style="display:inline-block;margin-top:6px;font-size:13px;">12月の施工枠は11月中のご予約で確保をおすすめします。</span>
+      <b>相談だけでも大丈夫です。</b>「うちのエアコンも対象？」「概算だけ知りたい」——<br>見積り前の疑問に、業務用専門のスタッフがお答えします。しつこい営業は一切しません。<!-- 【要確認】ここから：年末枠（NGならこの案内文（span要素）を削除） --><br><span style="display:inline-block;margin-top:6px;font-size:13px;">12月の施工枠は11月中のご予約で確保をおすすめします。</span><!-- 【要確認】ここまで -->
     </div>
     <form action="#" method="post">
       <input type="text" name="website" value="" style="position:absolute;left:-9999px;opacity:0;" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -1237,7 +1281,6 @@ gtag('config','G-MLDT3DP43Q');
       <button class="submit" type="submit">送信する（見積り・相談ともに無料）</button>
       <p class="form-micro">送信後、営業時間内（9:00〜18:00）に担当者からご連絡します。</p>
       <p class="form-micro">送信いただいた内容は<span class="pp-link" role="button" tabindex="0" onclick="document.getElementById('pp-dialog').showModal()" onkeydown="if(event.key==='Enter')document.getElementById('pp-dialog').showModal()">プライバシーポリシー</span>に基づき取り扱います。</p>
-      <p class="form-micro" id="form-demo-msg" style="display:none;color:var(--note);font-weight:700">※デザイン確認用のため、まだ送信されません。公開時にフォーム送信先と計測タグを接続します。</p>
     </form>
     <div class="tel-box reveal">
       <div class="cap">お急ぎの方はお電話が早いです</div>
@@ -1332,12 +1375,11 @@ renderWorries('飲食店');
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('section h2').forEach(el=>el.classList.add('reveal'));
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// フォーム送信（GAS受け口→info@n-hc.jpへメール通知。endpoint未設定時は注意書き表示）
+// フォーム送信（同フォルダの send.php → info@n-hc.jp へメール通知）
 const FORM_ENDPOINT='send.php';// 同フォルダのPHPで受信（差出人 no-reply@n-hc.jp → info@n-hc.jp）
 const lpForm=document.querySelector('form');
 lpForm.addEventListener('submit',async e=>{
   e.preventDefault();
-  if(!FORM_ENDPOINT){document.getElementById('form-demo-msg').style.display='block';return}
   const btn=lpForm.querySelector('.submit');
   btn.disabled=true;btn.textContent='送信中…';
   try{
